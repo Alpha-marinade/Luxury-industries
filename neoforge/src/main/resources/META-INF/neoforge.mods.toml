@@ -4,7 +4,7 @@ loaderVersion = "[2,)"
 license = "All Rights Reserved"
 
 [[mods]]
-modId = "luxury-industries"
+modId = "luxury_industries"
 version = "${version}"
 displayName = "Luxury-Industries"
 authors = "Ray, alpha_marinade, Magafin"
