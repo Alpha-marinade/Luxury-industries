@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.TeamEvo.luxury_industries.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "luxury_industries.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
