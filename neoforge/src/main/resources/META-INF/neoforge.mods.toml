@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+#issueTrackerURL = ""
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "luxury-industries"
+version = "${version}"
+displayName = "Luxury-Industries"
+authors = "Ray, alpha_marinade, Magafin"
+description = '''
+
+'''
+#logoFile = ""
+
+[[dependencies.luxury-industries]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.luxury-industries]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.luxury-industries]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "luxury-industries.mixins.json"
