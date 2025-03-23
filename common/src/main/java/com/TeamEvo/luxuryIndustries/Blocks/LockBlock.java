@@ -1,6 +1,5 @@
 package com.TeamEvo.luxuryIndustries.Blocks;
 
-import com.TeamEvo.luxuryIndustries.Items.testKey;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -22,11 +21,11 @@ public class LockBlock extends Block {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
-        if (itemStack.getItem() instanceof testKey){
+
             BlockState state=blockState.cycle(OPENED);
             level.setBlock(blockPos,state,Block.UPDATE_ALL);
-            System.out.println("hi");
-        }
+
+
         System.out.println("world");
         return super.useItemOn(itemStack, blockState, level, blockPos, player, interactionHand, blockHitResult);
     }

@@ -2,17 +2,13 @@ package com.TeamEvo.luxuryIndustries;
 
 import com.TeamEvo.luxuryIndustries.Blocks.LockBlock;
 import com.TeamEvo.luxuryIndustries.Items.KeyFragment;
-import com.TeamEvo.luxuryIndustries.Items.testKey;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
