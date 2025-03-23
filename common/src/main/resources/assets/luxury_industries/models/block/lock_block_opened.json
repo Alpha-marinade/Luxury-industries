@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "luxury_industries:block/lock_block_front"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "opened=false": { "model": "luxury_industries:block/lock_block_closed" },
+    "opened=true": { "model": "luxury_industries:block/lock_block_opened" }
+  }
+}
