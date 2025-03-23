@@ -6,28 +6,28 @@ license = "All Rights Reserved"
 [[mods]]
 modId = "luxury_industries"
 version = "${version}"
-displayName = "Luxury-Industries"
+displayName = "Luxury Industries"
 authors = "Ray, alpha_marinade, Magafin"
 description = '''
 
 '''
 logoFile = "logo.png"
 
-[[dependencies.luxury-industries]]
+[[dependencies.luxury_industries]]
 modId = "neoforge"
 type = "required"
 versionRange = "[21,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.luxury-industries]]
+[[dependencies.luxury_industries]]
 modId = "minecraft"
 type = "required"
 versionRange = "[1.21,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.luxury-industries]]
+[[dependencies.luxury_industries]]
 modId = "architectury"
 type = "required"
 versionRange = "[13.0.8,)"
@@ -35,4 +35,4 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[mixins]]
-config = "luxury-industries.mixins.json"
+config = "luxury_industries.mixins.json"

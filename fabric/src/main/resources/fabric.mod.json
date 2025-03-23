@@ -13,7 +13,7 @@
     "homepage": ""
   },
   "license": "All-Rights-Reserved",
-  "icon": "assets/luxury-industries/icon.png",
+  "icon": "assets/luxury_industries/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -24,7 +24,7 @@
     ]
   },
   "mixins": [
-    "luxury-industries.mixins.json"
+    "luxury_industries.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.16.10",
