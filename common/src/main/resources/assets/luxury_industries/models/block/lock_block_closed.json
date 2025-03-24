@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "all": "luxury_industries:block/fancy_case"
+    "down": "luxury_industries:block/lock_block_side4",
+    "east": "luxury_industries:block/lock_block_side",
+    "north": "luxury_industries:block/lock_block_back_off",
+    "particle": "luxury_industries:block/lock_block_side",
+    "south": "luxury_industries:block/lock_block_front",
+    "up": "luxury_industries:block/lock_block_side2",
+    "west": "luxury_industries:block/lock_block_side3"
   }
 }
