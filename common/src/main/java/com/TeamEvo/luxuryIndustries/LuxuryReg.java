@@ -1,6 +1,7 @@
 package com.TeamEvo.luxuryIndustries;
 
 import com.TeamEvo.luxuryIndustries.Blocks.BlockEntity.LockBlockEntity;
+import com.TeamEvo.luxuryIndustries.Blocks.ColumnBlock;
 import com.TeamEvo.luxuryIndustries.Blocks.LockBlock;
 import com.TeamEvo.luxuryIndustries.Items.KeyFragment;
 import dev.architectury.registry.CreativeTabRegistry;
@@ -41,6 +42,12 @@ public class LuxuryReg {
 ).build(null));
     public static final RegistrySupplier<Block> WHITE_BRICKS = BLOCKS.register("white_bricks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.IGNORE).explosionResistance(10f).strength(10.0F, 10F)));
     public static final RegistrySupplier<Item> WHITE_BRICKS_ITEM = ITEMS.register("white_bricks",()->new BlockItem(WHITE_BRICKS.get(), new Item.Properties().arch$tab(LUXURY_TAB)));
+
+    public static final RegistrySupplier<Block> WHITE_COLUMN = BLOCKS.register("white_column", () -> new ColumnBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.NORMAL).explosionResistance(1f).strength(1.0F, 1F)));
+    public static final RegistrySupplier<Item> WHITE_COLUMN_ITEM = ITEMS.register("white_column",()->new BlockItem(WHITE_COLUMN.get(), new Item.Properties().arch$tab(LUXURY_TAB)));
+
+
+
 
     public static void init(){
         BLOCKS.register();
