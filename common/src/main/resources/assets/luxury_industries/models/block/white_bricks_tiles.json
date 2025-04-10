@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "luxury_industries:block/white_bricks_tiles"
+  }
+}

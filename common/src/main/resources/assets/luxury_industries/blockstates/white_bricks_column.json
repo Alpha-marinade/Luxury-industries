@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "up=false,down=false": { "model": "luxury_industries:block/white_bricks_column_single" },
+    "up=false,down=true": { "model": "luxury_industries:block/white_bricks_column_top" },
+    "up=true,down=true": { "model": "luxury_industries:block/white_bricks_column_mid" },
+    "up=true,down=false": { "model": "luxury_industries:block/white_bricks_column_down" }
+  }
+}

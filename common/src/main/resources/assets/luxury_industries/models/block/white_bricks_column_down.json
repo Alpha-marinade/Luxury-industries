@@ -1,0 +1,23 @@
+{
+	"parent": "minecraft:block/cube_column",
+	"textures": {
+		"end": "luxury_industries:block/chiseled_white_bricks_tiles",
+		"side": "luxury_industries:block/white_bricks_column",
+		"particle": "luxury_industries:block/white_bricks"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, 0, 6]},
+			"faces": {
+				"north": {"uv": [0, 10.66667, 5.33334, 16], "texture": "#side"},
+				"east": {"uv": [0, 10.66667, 5.33334, 16], "texture": "#side"},
+				"south": {"uv": [0, 10.66667, 5.33334, 16], "texture": "#side"},
+				"west": {"uv": [0, 10.66667, 5.33334, 16], "texture": "#side"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#end"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#end"}
+			}
+		}
+	]
+}
