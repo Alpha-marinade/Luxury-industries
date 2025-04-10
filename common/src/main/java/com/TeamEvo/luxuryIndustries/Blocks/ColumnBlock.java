@@ -18,7 +18,9 @@ public class ColumnBlock extends Block {
 
     public ColumnBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(UP,false).setValue(DOWN,false));
+        this.registerDefaultState(this.getStateDefinition().any()
+                .setValue(UP,false)
+                .setValue(DOWN,false));
     }
 
     @Override
@@ -37,9 +39,9 @@ public class ColumnBlock extends Block {
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext ctx) {
         BlockState newState = this.getStateDefinition().any();
-        boolean hasUp = ctx.getLevel().getBlockState(ctx.getClickedPos().above()).is(LuxuryReg.WHITE_COLUMN.get());
+        boolean hasUp = ctx.getLevel().getBlockState(ctx.getClickedPos().above()).is(LuxuryReg.WHITE_BRICKS_COLUMN.get());
         newState = newState.setValue(UP, hasUp);
-        boolean hasDown = ctx.getLevel().getBlockState(ctx.getClickedPos().below()).is(LuxuryReg.WHITE_COLUMN.get());
+        boolean hasDown = ctx.getLevel().getBlockState(ctx.getClickedPos().below()).is(LuxuryReg.WHITE_BRICKS_COLUMN.get());
         newState = newState.setValue(DOWN, hasDown);
         return newState;
     }
@@ -47,10 +49,10 @@ public class ColumnBlock extends Block {
     public void updateState(BlockState state, Level level, BlockPos pos){
         if (!level.isClientSide) {
             BlockState newState = state;
-            boolean hasUp = level.getBlockState(pos.above()).is(LuxuryReg.WHITE_COLUMN.get());
+            boolean hasUp = level.getBlockState(pos.above()).is(LuxuryReg.WHITE_BRICKS_COLUMN.get());
             newState = newState.setValue(UP, hasUp);
 
-            boolean hasDown = level.getBlockState(pos.below()).is(LuxuryReg.WHITE_COLUMN.get());
+            boolean hasDown = level.getBlockState(pos.below()).is(LuxuryReg.WHITE_BRICKS_COLUMN.get());
             newState = newState.setValue(DOWN, hasDown);
 
             if (!newState.equals(state)) {
