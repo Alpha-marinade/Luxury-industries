@@ -1,6 +1,9 @@
 {
   "block.luxury_industries.lock_block": "Lock block",
-
   "item.luxury_industries.key_shard": "Key shard",
-  "item.luxury_industries.elegant_casing": "Elegant casing"
+  "item.luxury_industries.elegant_casing": "Elegant casing",
+  "block.luxury_industries.white_bricks": "White bricks",
+  "block.luxury_industries.white_bricks_column": "White bricks column",
+  "block.luxury_industries.white_bricks_tiles": "White bricks tiles",
+  "item.luxury_industries.white_brick": "White brick"
 }

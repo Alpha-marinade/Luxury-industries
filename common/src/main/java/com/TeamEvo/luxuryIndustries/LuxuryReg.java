@@ -31,8 +31,10 @@ public class LuxuryReg {
             )
     );
 
-    public static final RegistrySupplier<Item> ELEGANT_CASING = ITEMS.register("elegant_casing",()->new KeyFragment(new Item.Properties().arch$tab(LUXURY_TAB)));
+    public static final RegistrySupplier<Item> ELEGANT_CASING = ITEMS.register("elegant_casing",()->new Item(new Item.Properties().arch$tab(LUXURY_TAB)));
+
     public static final RegistrySupplier<Item> KEY_FRAGMENT = ITEMS.register("key_shard",()->new KeyFragment(new Item.Properties().rarity(Rarity.EPIC).arch$tab(LUXURY_TAB)));
+
     public static final RegistrySupplier<Block> LOCK_BLOCK = BLOCKS.register("lock_block", () -> new LockBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.IGNORE).explosionResistance(10f).strength(10.0F, 10F)));
     public static final RegistrySupplier<Item> LOCK_BLOCK_ITEM = ITEMS.register("lock_block",()->new BlockItem(LOCK_BLOCK.get(), new Item.Properties().arch$tab(LUXURY_TAB)));
     public static final RegistrySupplier<BlockEntityType<LockBlockEntity>> LOCK_BLOCK_ENTITY=BLOCK_ENTITY.register("lock_block_entity",
@@ -40,6 +42,9 @@ public class LuxuryReg {
         LockBlockEntity::new,
         LOCK_BLOCK.get()
 ).build(null));
+
+    public static final RegistrySupplier<Item> WHITE_BRICK = ITEMS.register("white_brick", ()->new Item(new Item.Properties().arch$tab(LUXURY_TAB)));
+
     public static final RegistrySupplier<Block> WHITE_BRICKS = BLOCKS.register("white_bricks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.IGNORE).explosionResistance(0f).strength(1.0F, 1F)));
     public static final RegistrySupplier<Item> WHITE_BRICKS_ITEM = ITEMS.register("white_bricks",()->new BlockItem(WHITE_BRICKS.get(), new Item.Properties().arch$tab(LUXURY_TAB)));
 

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "luxury_industries:white_brick"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "luxury_industries:white_bricks"
+  }
+}
