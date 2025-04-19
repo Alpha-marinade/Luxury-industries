@@ -20,11 +20,25 @@ public class TagReg {
                                 .networkSynchronized(ByteBufCodecs.BOOL)
                                 .build()
                 );
-    public static final RegistrySupplier<DataComponentType<String>> LOCK_POS =
-            COMPONENTS.register("lock_pos", () ->
-                    DataComponentType.<String>builder()
-                            .persistent(Codec.STRING)
-                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+    public static final RegistrySupplier<DataComponentType<Integer>> X_POS =
+            COMPONENTS.register("x_pos", () ->
+                    DataComponentType.<Integer>builder()
+                            .persistent(Codec.INT)
+                            .networkSynchronized(ByteBufCodecs.INT)
+                            .build()
+            );
+    public static final RegistrySupplier<DataComponentType<Integer>> Y_POS =
+            COMPONENTS.register("y_pos", () ->
+                    DataComponentType.<Integer>builder()
+                            .persistent(Codec.INT)
+                            .networkSynchronized(ByteBufCodecs.INT)
+                            .build()
+            );
+    public static final RegistrySupplier<DataComponentType<Integer>> Z_POS =
+            COMPONENTS.register("z_pos", () ->
+                    DataComponentType.<Integer>builder()
+                            .persistent(Codec.INT)
+                            .networkSynchronized(ByteBufCodecs.INT)
                             .build()
             );
     public static final RegistrySupplier<DataComponentType<String>> KEY =

@@ -17,11 +17,8 @@ import java.util.List;
 public class ItemsMixin {
     @Inject(method = "appendHoverText",at=@At("TAIL"))
     public void tooltip(ItemStack itemStack, Item.TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag, CallbackInfo ci){
-        if(itemStack.getComponents().has(TagReg.HAS_KEY.get())){
-           list.add(Component.translatable("item.luxury_industries.items.key").withStyle(ChatFormatting.GOLD));
-        }
-        if(itemStack.getComponents().has(TagReg.LOCK_POS.get())){
-            list.add(Component.translatable("item.luxury_industries.items.linked_to",itemStack.get(TagReg.LOCK_POS.get())).withStyle(ChatFormatting.GRAY));
+        if(itemStack.getComponents().has(TagReg.X_POS.get())){
+            list.add(Component.translatable("item.luxury_industries.items.linked_to",itemStack.get(TagReg.X_POS.get()),itemStack.get(TagReg.Y_POS.get()),itemStack.get(TagReg.Z_POS.get())).withStyle(ChatFormatting.GRAY));
         }
     }
 }

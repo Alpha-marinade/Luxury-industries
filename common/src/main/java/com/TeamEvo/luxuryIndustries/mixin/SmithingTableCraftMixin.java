@@ -7,6 +7,7 @@ import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.crafting.RecipeHolder;
@@ -60,7 +61,7 @@ public abstract class SmithingTableCraftMixin extends ItemCombinerMenu {
 
         if (template.getItem() == itemsReg.KEY_FRAGMENT.get()
                 && !base.isEmpty()
-                && addition.isEmpty()) {
+                && addition.isEmpty()&& !(base.getItem() instanceof BlockItem)) {
 
             ItemStack result = base.copyWithCount(1);
             result.set(HAS_KEY.get(), true);

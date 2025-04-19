@@ -19,31 +19,40 @@ import org.jetbrains.annotations.Nullable;
 
 public class LockBlock extends Block implements EntityBlock {
     private static final BooleanProperty OPENED=BooleanProperty.create("opened");
+    private static final BooleanProperty HAS_KEY =BooleanProperty.create("has_key");
     public LockBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(OPENED,false));
+        this.registerDefaultState(this.defaultBlockState().setValue(OPENED,false).setValue(HAS_KEY,false));
     }
-
-    @Override
-    protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
-        LockBlockEntity blockEntity = (LockBlockEntity ) level.getBlockEntity(blockPos);
-        if (blockEntity != null) {
-            if (blockEntity.getKeyItem() ==null&& itemStack.getComponents().has(TagReg.HAS_KEY.get())) {
-                String pos = "X: "+blockPos.getX()+" Y:"+blockPos.getY()+" Z: "+blockPos.getZ();
-                itemStack.set(TagReg.LOCK_POS.get(),pos);
-
-                blockEntity.keygen(itemStack);
-            }
+@Override
+protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    LockBlockEntity blockEntity = (LockBlockEntity) level.getBlockEntity(blockPos);
+    boolean hasKey = blockState.getValue(HAS_KEY);
+    boolean actionPerformed = false;
+    if (!hasKey) {
+        if (blockEntity != null && blockEntity.getKeyItem() == null && itemStack.getComponents().has(TagReg.HAS_KEY.get())) {
+            itemStack.set(TagReg.X_POS.get(), blockPos.getX());
+            itemStack.set(TagReg.Y_POS.get(), blockPos.getY());
+            itemStack.set(TagReg.Z_POS.get(), blockPos.getZ());
+            blockEntity.keygen(itemStack);
+            BlockState newState = blockState.setValue(HAS_KEY, true);
+            level.setBlock(blockPos, newState, Block.UPDATE_ALL);
+            actionPerformed = true;
         }
-
-        BlockState state=blockState.cycle(OPENED);
-        level.setBlock(blockPos,state,Block.UPDATE_ALL);
-        return super.useItemOn(itemStack, blockState, level, blockPos, player, interactionHand, blockHitResult);
+    } else {
+        if(itemStack.has(TagReg.KEY.get())&&itemStack.get(TagReg.KEY.get())== ((LockBlockEntity) level.getBlockEntity(blockPos)).getKey()) {
+            BlockState newState = blockState.cycle(OPENED);
+            level.setBlock(blockPos, newState, Block.UPDATE_ALL);
+            actionPerformed = true;
+        }
     }
+    return actionPerformed ? ItemInteractionResult.SUCCESS : super.useItemOn(itemStack, blockState, level, blockPos, player, interactionHand, blockHitResult);
+}
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(OPENED);
+        builder.add(HAS_KEY);
         super.createBlockStateDefinition(builder);
     }
 
