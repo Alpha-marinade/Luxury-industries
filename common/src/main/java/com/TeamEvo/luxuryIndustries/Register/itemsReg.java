@@ -21,7 +21,4 @@ public class itemsReg {
     public static final RegistrySupplier<Item> WHITE_BRICKS_COLUMN_ITEM = ITEMS.register("white_bricks_column",()->new BlockItem(WHITE_BRICKS_COLUMN.get(), new Item.Properties()));
     public static final RegistrySupplier<Item> WHITE_BRICKS_TILES_ITEM = ITEMS.register("white_bricks_tiles",()->new BlockItem(WHITE_BRICKS_TILES.get(), new Item.Properties()));
 
-
-
-
 }

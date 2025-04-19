@@ -1,0 +1,18 @@
+{
+  "type": "luxury_industries:anvil_crafting",
+  "id": "luxury_industries:white_bricks",
+  "inputs": [
+    {
+      "id": "minecraft:sand",
+      "count": 1
+    },
+    {
+      "id": "minecraft:clay",
+      "count": 1
+    }
+  ],
+  "output": {
+    "id": "luxury_industries:white_bricks",
+    "count": 2
+  }
+}

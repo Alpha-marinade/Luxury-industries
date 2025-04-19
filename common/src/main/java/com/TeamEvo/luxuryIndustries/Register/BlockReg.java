@@ -20,16 +20,4 @@ public class BlockReg {
     public static final RegistrySupplier<Block> WHITE_BRICKS = BLOCKS.register("white_bricks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.IGNORE).explosionResistance(0f).strength(1.0F, 1F)));
     public static final RegistrySupplier<Block> WHITE_BRICKS_COLUMN = BLOCKS.register("white_bricks_column", () -> new ColumnBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.NORMAL).explosionResistance(1f).strength(1.0F, 1F)));
     public static final RegistrySupplier<Block> WHITE_BRICKS_TILES = BLOCKS.register("white_bricks_tiles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.NORMAL).explosionResistance(1f).strength(1.0F, 1F)));
-
-
-
-
-
-
-
-
-
-
-
-
 }
