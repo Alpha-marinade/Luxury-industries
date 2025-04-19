@@ -1,5 +1,11 @@
 {
   "block.luxury_industries.lock_block": "Замок",
   "item.luxury_industries.key_shard": "Осколки ключа",
-  "item.luxury_industries.elegant_casing": "Изысканный корпус"
+  "item.luxury_industries.elegant_casing": "Изысканный корпус",
+  "block.luxury_industries.white_bricks": "Белые Кирпичи",
+  "block.luxury_industries.white_bricks_column": "Колонны из Белых Кирпичей",
+  "block.luxury_industries.white_bricks_tiles": "White bricks tiles",
+  "item.luxury_industries.white_brick": "Белый Кирпич",
+  "item.luxury_industries.items.key": "Содержит ключ",
+  "item.luxury_industries.items.linked_to": "Связан с X: %d Y: %d Z: %d"
 }

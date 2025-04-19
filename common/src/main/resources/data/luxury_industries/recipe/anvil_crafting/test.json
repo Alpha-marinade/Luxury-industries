@@ -1,0 +1,18 @@
+{
+  "type": "luxury_industries:anvil_crafting",
+  "id": "luxury_industries:test",
+  "inputs": [
+    {
+      "id": "minecraft:iron_ingot",
+      "count": 3
+    },
+    {
+      "id": "minecraft:redstone",
+      "count": 2
+    }
+  ],
+  "output": {
+    "id": "minecraft:diamond",
+    "count": 1
+  }
+}

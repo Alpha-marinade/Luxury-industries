@@ -8,10 +8,12 @@ import static com.TeamEvo.luxuryIndustries.Register.itemsReg.ITEMS;
 public class LuxuryReg {
     public static void init(){
         TagReg.register();
+        RecipesReg.register();
         BLOCKS.register();
         ITEMS.register();
         TABS.register();
         BLOCK_ENTITY.register();
+
 
     }
 }
