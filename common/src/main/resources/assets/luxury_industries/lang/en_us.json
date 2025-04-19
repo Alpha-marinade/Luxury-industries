@@ -5,5 +5,7 @@
   "block.luxury_industries.white_bricks": "White bricks",
   "block.luxury_industries.white_bricks_column": "White bricks column",
   "block.luxury_industries.white_bricks_tiles": "White bricks tiles",
-  "item.luxury_industries.white_brick": "White brick"
+  "item.luxury_industries.white_brick": "White brick",
+  "item.luxury_industries.items.key": "contains key",
+  "item.luxury_industries.items.linked_to": "linked to %s"
 }

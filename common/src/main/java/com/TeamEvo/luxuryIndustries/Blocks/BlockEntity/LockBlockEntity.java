@@ -1,5 +1,6 @@
 package com.TeamEvo.luxuryIndustries.Blocks.BlockEntity;
 
+import com.TeamEvo.luxuryIndustries.Register.TagReg;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -72,6 +73,7 @@ public class LockBlockEntity extends BlockEntity {
     public void keygen(ItemStack stack){
         this.keyItem=stack.getItem().toString();
         this.key=keyGen();
+        stack.set(TagReg.KEY.get(),key);
 
 
     }

@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -36,7 +37,11 @@ public abstract class SmithingTableCraftMixin extends ItemCombinerMenu {
     @Shadow @Final private List<RecipeHolder<SmithingRecipe>> recipes;
 
 
+    @Shadow @Final private Level level;
 
+    @Shadow @Nullable private RecipeHolder<SmithingRecipe> selectedRecipe;
+
+    @Shadow protected abstract SmithingRecipeInput createRecipeInput();
 
     protected SmithingTableCraftMixin(MenuType<?> menuType, int i, Inventory inventory, ContainerLevelAccess access) {
         super(menuType, i, inventory, access);
@@ -82,17 +87,21 @@ public abstract class SmithingTableCraftMixin extends ItemCombinerMenu {
     private ItemCombinerMenuSlotDefinition.Builder redirectSlotValidation(ItemCombinerMenuSlotDefinition.Builder builder, int slot, int x, int y, Predicate<ItemStack> predicate) {
         return builder.withSlot(slot, x, y, itemStack -> true);
     }
-    /*
-    @Redirect(
-            method = "mayPickup",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/item/crafting/SmithingRecipe;matches(Lnet/minecraft/world/item/crafting/SmithingRecipeInput;Lnet/minecraft/world/level/Level;)Z"
-            )
-    )
-    private boolean allowPickup(SmithingRecipe recipe, SmithingRecipeInput input, Level level) {
-        return isCustomCraft || recipe.matches(input, level);
+
+    @Inject(method = "mayPickup", at = @At("HEAD"), cancellable = true)
+    protected void handleCustomCraftCheck(Player player, boolean bl, CallbackInfoReturnable<Boolean> cir) {
+        if (this.isCustomCraft) {
+            cir.setReturnValue(true);
+            return;
+        }
+        if (this.selectedRecipe == null) {
+            cir.setReturnValue(false);
+            return;
+        }
+    }
+    @ModifyVariable(method = "mayPickup", at = @At(value = "RETURN"), ordinal = 0)
+    private boolean modifyMatchesResult(boolean original) {
+        return original || this.isCustomCraft;
     }
 
-     */
 }

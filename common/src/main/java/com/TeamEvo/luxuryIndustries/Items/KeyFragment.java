@@ -24,6 +24,7 @@ public class KeyFragment extends SmithingTemplateItem {
     }
 
 
+
     @Override
     public int getDefaultMaxStackSize() {
         return 16;

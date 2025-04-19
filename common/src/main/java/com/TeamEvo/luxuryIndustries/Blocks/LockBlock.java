@@ -1,6 +1,7 @@
 package com.TeamEvo.luxuryIndustries.Blocks;
 
 import com.TeamEvo.luxuryIndustries.Blocks.BlockEntity.LockBlockEntity;
+import com.TeamEvo.luxuryIndustries.Register.TagReg;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -27,9 +28,11 @@ public class LockBlock extends Block implements EntityBlock {
     protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
         LockBlockEntity blockEntity = (LockBlockEntity ) level.getBlockEntity(blockPos);
         if (blockEntity != null) {
-            if (blockEntity.getKeyItem() ==null) {
+            if (blockEntity.getKeyItem() ==null&& itemStack.getComponents().has(TagReg.HAS_KEY.get())) {
+                String pos = "X: "+blockPos.getX()+" Y:"+blockPos.getY()+" Z: "+blockPos.getZ();
+                itemStack.set(TagReg.LOCK_POS.get(),pos);
+
                 blockEntity.keygen(itemStack);
-                System.out.println("hi");
             }
         }
 
