@@ -76,58 +76,7 @@ public abstract class MixinItemRenderer {
         }
     }
 }
-/*
-@Mixin(ItemRenderer.class)
-public abstract class MixinItemRenderer {
 
-    @Shadow @Final private TextureManager textureManager;
-
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(MODID, "textures/ui/key.png");
-
-    @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/ItemRenderer;renderModelLists(Lnet/minecraft/client/resources/model/BakedModel;Lnet/minecraft/world/item/ItemStack;IILcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;)V", shift = At.Shift.AFTER))
-    private void onRenderItem(ItemStack stack, ItemDisplayContext displayContext, boolean leftHand, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay, BakedModel model, CallbackInfo ci) {
-        if (displayContext == ItemDisplayContext.GUI) {
-            poseStack.pushPose();
-            poseStack.translate(-0.001F, -0.001F, 1);
-            if (stack.has(TagReg.HAS_KEY.get())) {
-                renderGuiItem(poseStack, TEXTURE, 16, 16, new ItemStack(Items.APPLE), buffer, packedLight, packedOverlay);
-            }
-            poseStack.popPose();
-        }
-    }
-    public void renderGuiItem(PoseStack poseStack, ResourceLocation texture, int width, int height, ItemStack dummyStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
-        textureManager.getTexture(texture).setFilter(false, false);
-        RenderSystem.setShaderTexture(0, texture);
-        int packLight = LightTexture.pack(15, 15);
-        int packOverlay = OverlayTexture.NO_OVERLAY;
-        poseStack.pushPose();
-        poseStack.scale(width / 256.0F, height / 256.0F, 1.0F);
-        poseStack.translate(0,height/2f,0);
-        VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(texture));
-        Matrix4f matrix = poseStack.last().pose();
-        Vector3f normal = new Vector3f(0, 0, 1);
-        Matrix3f normalMatrix = poseStack.last().normal();
-        normal.mulTranspose(normalMatrix);
-        for (int i = 0; i < 4; i++) {
-            float x = (i == 0 || i == 3) ? 0 : 16;
-            float y = (i < 2) ? 0 : 16;
-            float u = (i == 0 || i == 3) ? 0 : 1;
-            float v = (i < 2) ? 0 : 1;
-
-            vertexConsumer.addVertex(matrix, x, y, 0)
-                    .setColor(255, 255, 255, 255)
-                    .setUv(u, v)
-                    .setUv2(packLight,0)
-                    .setOverlay(packOverlay)
-                    .setUv1(0, 0)
-                    .setNormal(normal.x(), normal.y(), normal.z());
-        }
-        poseStack.popPose();
-    }
-
-}
-
- */
 
 
 
