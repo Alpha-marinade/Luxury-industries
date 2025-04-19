@@ -12,7 +12,6 @@ import java.util.Random;
 
 import static com.TeamEvo.luxuryIndustries.Register.EntityReg.LOCK_BLOCK_ENTITY;
 
-
 public class LockBlockEntity extends BlockEntity {
     private String keyItem;
     private String key;
@@ -32,12 +31,10 @@ public class LockBlockEntity extends BlockEntity {
         if (this.key!=null){
             tag.putString("key",this.key);
         }
-
-
     }
-
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider provider) {
+
         super.loadAdditional(tag, provider);
         if (tag.contains("keyItem")){
             keyItem = tag.getString("keyItem");
@@ -45,6 +42,7 @@ public class LockBlockEntity extends BlockEntity {
         if (tag.contains("key")){
             key = tag.getString("key");
         }
+
     }
 
     public String getKeyItem() {

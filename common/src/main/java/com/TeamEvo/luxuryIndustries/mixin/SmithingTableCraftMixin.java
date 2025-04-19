@@ -35,14 +35,9 @@ import static com.TeamEvo.luxuryIndustries.Register.TagReg.HAS_KEY;
 // SmithingMenuMixin.java
 @Mixin(SmithingMenu.class)
 public abstract class SmithingTableCraftMixin extends ItemCombinerMenu {
-    @Shadow @Final private List<RecipeHolder<SmithingRecipe>> recipes;
-
-
-    @Shadow @Final private Level level;
 
     @Shadow @Nullable private RecipeHolder<SmithingRecipe> selectedRecipe;
 
-    @Shadow protected abstract SmithingRecipeInput createRecipeInput();
 
     protected SmithingTableCraftMixin(MenuType<?> menuType, int i, Inventory inventory, ContainerLevelAccess access) {
         super(menuType, i, inventory, access);
@@ -80,11 +75,7 @@ public abstract class SmithingTableCraftMixin extends ItemCombinerMenu {
            isCustomCraft = false;
         }
     }
-    @Redirect(
-            method = "createInputSlotDefinitions",
-            at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/world/inventory/ItemCombinerMenuSlotDefinition$Builder;withSlot(IIILjava/util/function/Predicate;)Lnet/minecraft/world/inventory/ItemCombinerMenuSlotDefinition$Builder;"
-            ))
+    @Redirect(method = "createInputSlotDefinitions", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/inventory/ItemCombinerMenuSlotDefinition$Builder;withSlot(IIILjava/util/function/Predicate;)Lnet/minecraft/world/inventory/ItemCombinerMenuSlotDefinition$Builder;"))
     private ItemCombinerMenuSlotDefinition.Builder redirectSlotValidation(ItemCombinerMenuSlotDefinition.Builder builder, int slot, int x, int y, Predicate<ItemStack> predicate) {
         return builder.withSlot(slot, x, y, itemStack -> true);
     }
