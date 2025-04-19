@@ -23,10 +23,6 @@ public class KeyFragment extends SmithingTemplateItem {
                 FeatureFlags.VANILLA);
     }
 
-    @Override
-    public Component getDescription() {
-        return super.getDescription();
-    }
 
     @Override
     public int getDefaultMaxStackSize() {

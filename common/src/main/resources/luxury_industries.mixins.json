@@ -6,6 +6,7 @@
   "client": [
   ],
   "mixins": [
+    "SmithingTableCraftMixin"
   ],
   "injectors": {
     "defaultRequire": 1
