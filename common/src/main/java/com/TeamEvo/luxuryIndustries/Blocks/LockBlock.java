@@ -27,10 +27,12 @@ public class LockBlock extends Block implements EntityBlock {
     protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
         LockBlockEntity blockEntity = (LockBlockEntity ) level.getBlockEntity(blockPos);
         if (blockEntity != null) {
-            if (blockEntity.getKey() == 0) {
-                blockEntity.generateKey();
+            if (blockEntity.getKeyItem() ==null) {
+                blockEntity.keygen(itemStack);
+                System.out.println("hi");
             }
         }
+
         BlockState state=blockState.cycle(OPENED);
         level.setBlock(blockPos,state,Block.UPDATE_ALL);
         return super.useItemOn(itemStack, blockState, level, blockPos, player, interactionHand, blockHitResult);

@@ -1,16 +1,16 @@
 package com.TeamEvo.luxuryIndustries.Blocks;
 
-import com.TeamEvo.luxuryIndustries.LuxuryReg;
+
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jetbrains.annotations.Nullable;
+
+import static com.TeamEvo.luxuryIndustries.Register.BlockReg.WHITE_BRICKS_COLUMN;
 
 public class ColumnBlock extends Block {
     public static final BooleanProperty UP=BooleanProperty.create("up");
@@ -39,9 +39,9 @@ public class ColumnBlock extends Block {
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext ctx) {
         BlockState newState = this.getStateDefinition().any();
-        boolean hasUp = ctx.getLevel().getBlockState(ctx.getClickedPos().above()).is(LuxuryReg.WHITE_BRICKS_COLUMN.get());
+        boolean hasUp = ctx.getLevel().getBlockState(ctx.getClickedPos().above()).is(WHITE_BRICKS_COLUMN.get());
         newState = newState.setValue(UP, hasUp);
-        boolean hasDown = ctx.getLevel().getBlockState(ctx.getClickedPos().below()).is(LuxuryReg.WHITE_BRICKS_COLUMN.get());
+        boolean hasDown = ctx.getLevel().getBlockState(ctx.getClickedPos().below()).is(WHITE_BRICKS_COLUMN.get());
         newState = newState.setValue(DOWN, hasDown);
         return newState;
     }
@@ -49,10 +49,10 @@ public class ColumnBlock extends Block {
     public void updateState(BlockState state, Level level, BlockPos pos){
         if (!level.isClientSide) {
             BlockState newState = state;
-            boolean hasUp = level.getBlockState(pos.above()).is(LuxuryReg.WHITE_BRICKS_COLUMN.get());
+            boolean hasUp = level.getBlockState(pos.above()).is(WHITE_BRICKS_COLUMN.get());
             newState = newState.setValue(UP, hasUp);
 
-            boolean hasDown = level.getBlockState(pos.below()).is(LuxuryReg.WHITE_BRICKS_COLUMN.get());
+            boolean hasDown = level.getBlockState(pos.below()).is(WHITE_BRICKS_COLUMN.get());
             newState = newState.setValue(DOWN, hasDown);
 
             if (!newState.equals(state)) {
