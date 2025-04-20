@@ -19,6 +19,7 @@ public final class LuxuryIndustriesNeoForge {
 
         LuxuryIndustries.init();
     }
+    /*
     @EventBusSubscriber(modid = MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
     public class ClientSetup {
         @SubscribeEvent
@@ -26,5 +27,7 @@ public final class LuxuryIndustriesNeoForge {
             BlockEntityRenderers.register(EntityReg.LOCK_BLOCK_ENTITY.get(), LockBlockEntityRenderer::new);
         }
     }
+
+     */
 
 }

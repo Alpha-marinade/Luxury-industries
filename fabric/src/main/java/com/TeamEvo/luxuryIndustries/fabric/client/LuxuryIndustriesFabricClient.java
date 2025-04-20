@@ -6,9 +6,16 @@ import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
 import net.fabricmc.api.ClientModInitializer;
 
 public final class LuxuryIndustriesFabricClient implements ClientModInitializer {
+    @Override
+    public void onInitializeClient() {
+
+    }
+    /*
         @Override
         public void onInitializeClient() {
             BlockEntityRendererRegistry.register(EntityReg.LOCK_BLOCK_ENTITY.get(), LockBlockEntityRenderer::new);
         }
+
+     */
 
 }
