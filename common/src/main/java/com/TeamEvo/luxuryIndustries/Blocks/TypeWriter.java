@@ -10,6 +10,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
@@ -20,6 +21,8 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
@@ -27,6 +30,7 @@ import java.util.Random;
 import static org.apache.commons.lang3.RandomUtils.nextInt;
 
 public class TypeWriter extends Block implements EntityBlock {
+    VoxelShape SHAPE = Block.box(3.0F, 0F,3.0F,13.0F, 13.0F,13.0F);
     private static final IntegerProperty TYPE = IntegerProperty.create("type", 0, 2);
     private static final BooleanProperty HAS_PAPER = BooleanProperty.create("has_paper");
     private static int clicks = 0;
@@ -106,6 +110,11 @@ public class TypeWriter extends Block implements EntityBlock {
             }
         }
         level.addFreshEntity(entity);
+    }
+
+    @Override
+    protected VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
+        return SHAPE;
     }
 }
 
