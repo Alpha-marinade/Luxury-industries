@@ -10,4 +10,5 @@ public final class LuxuryIndustries {
       LuxuryReg.init();
     }
 
+
 }

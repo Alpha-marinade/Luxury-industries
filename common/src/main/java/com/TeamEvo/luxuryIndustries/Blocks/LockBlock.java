@@ -27,6 +27,7 @@ public class LockBlock extends Block implements EntityBlock {
     private static final BooleanProperty OPENED=BooleanProperty.create("opened");
     private static final BooleanProperty HAS_KEY =BooleanProperty.create("has_key");
     private static final BooleanProperty MODE=BooleanProperty.create("mode");
+
     public LockBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState()
