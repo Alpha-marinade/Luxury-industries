@@ -19,9 +19,9 @@ public class EntityReg {
                     LockBlockEntity::new,
                     LOCK_BLOCK.get()
             ).build(null));
-    public static final RegistrySupplier<BlockEntityType<TypeWriterEntity>> TYPEWRITTER_ENTITY=BLOCK_ENTITY.register("typewritter_entity",
+    public static final RegistrySupplier<BlockEntityType<TypeWriterEntity>> TYPEWRITER_ENTITY=BLOCK_ENTITY.register("typewriter_entity",
             () -> BlockEntityType.Builder.of(
                     TypeWriterEntity::new,
-                    TYPEWRITTER.get()
+                    TYPEWRITER.get()
             ).build(null));
 }
