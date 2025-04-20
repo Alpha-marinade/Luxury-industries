@@ -32,7 +32,6 @@ public class AnvilMixin {
 
         level.getRecipeManager().getAllRecipesFor(AnvilCraftingRecipe.Type.INSTANCE)
                 .stream()
-                // Исправление здесь: получаем значение рецепта из RecipeHolder
                 .filter(holder -> holder.value().matches(items))
                 .findFirst()
                 .ifPresent(holder -> {
@@ -47,8 +46,7 @@ public class AnvilMixin {
                 .collect(Collectors.toMap(
                         ItemStack::getItem,
                         ItemStack::getCount,
-                        Integer::sum
-                ));
+                        Integer::sum));
 
         level.getEntitiesOfClass(ItemEntity.class, new AABB(pos)).forEach(e -> {
             ItemStack stack = e.getItem();

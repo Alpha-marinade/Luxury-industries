@@ -15,7 +15,7 @@ import static com.TeamEvo.luxuryIndustries.Register.EntityReg.LOCK_BLOCK_ENTITY;
 public class LockBlockEntity extends BlockEntity {
     private String keyItem;
     private String key;
-    private static final String CHARACTERS ="abcdefghijklmnopgrstuvwxyz";
+    private static final String CHARACTERS ="1234567890abcdefghijklmnopgrstuvwxyz";
 
     public LockBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(LOCK_BLOCK_ENTITY.get(), blockPos, blockState);
@@ -55,7 +55,9 @@ public class LockBlockEntity extends BlockEntity {
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider provider) {
         CompoundTag tag = super.getUpdateTag(provider);
+        if(keyItem!=null)
         tag.putString("keyItem", keyItem);
+        if(key!=null)
         tag.putString("key",key);
         return tag;
     }

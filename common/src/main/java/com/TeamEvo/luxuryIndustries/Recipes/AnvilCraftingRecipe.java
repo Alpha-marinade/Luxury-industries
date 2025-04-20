@@ -49,9 +49,7 @@ public class AnvilCraftingRecipe implements Recipe<RecipeInput> {
                 .collect(Collectors.toMap(
                         ItemStack::getItem,
                         ItemStack::getCount,
-                        Integer::sum
-                ));
-
+                        Integer::sum));
         Map<Item, Integer> actual = items.stream()
                 .collect(Collectors.toMap(
                         ItemStack::getItem,

@@ -2,11 +2,15 @@ package com.TeamEvo.luxuryIndustries.Blocks;
 
 import com.TeamEvo.luxuryIndustries.Blocks.BlockEntity.LockBlockEntity;
 import com.TeamEvo.luxuryIndustries.Register.TagReg;
+import dev.architectury.networking.SpawnEntityPacket;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -22,9 +26,13 @@ import org.jetbrains.annotations.Nullable;
 public class LockBlock extends Block implements EntityBlock {
     private static final BooleanProperty OPENED=BooleanProperty.create("opened");
     private static final BooleanProperty HAS_KEY =BooleanProperty.create("has_key");
+    private static final BooleanProperty MODE=BooleanProperty.create("mode");
     public LockBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(OPENED,false).setValue(HAS_KEY,false));
+        this.registerDefaultState(this.defaultBlockState()
+                .setValue(OPENED,false)
+                .setValue(HAS_KEY,false)
+                .setValue(MODE,false));
     }
 @Override
 protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
@@ -41,10 +49,17 @@ protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockS
                 BlockState newState = blockState.setValue(HAS_KEY, true);
                 level.setBlock(blockPos, newState, Block.UPDATE_ALL);
                 actionPerformed = true;
+                ClientMessage(Component.translatable("ui.luxury_industries.setKey"),player);
             }
         } else {
             if (itemStack.has(TagReg.KEY.get()) && (itemStack.get(TagReg.KEY.get()).equals(((LockBlockEntity) level.getBlockEntity(blockPos)).getKey()))) {
+
                 BlockState newState = blockState.cycle(OPENED);
+                if (blockState.getValue(OPENED)) {
+                    ClientMessage(Component.translatable("ui.luxury_industries.opened"), player);
+                } else {
+                    ClientMessage(Component.translatable("ui.luxury_industries.closed"), player);
+                }
                 level.setBlock(blockPos, newState, Block.UPDATE_ALL);
                 actionPerformed = true;
             }
@@ -57,6 +72,7 @@ protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockS
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(OPENED);
         builder.add(HAS_KEY);
+        builder.add(MODE);
         super.createBlockStateDefinition(builder);
     }
 
@@ -69,5 +85,16 @@ protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockS
     protected int getSignal(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) {
         return blockState.getValue(OPENED)?15:0;
     }
+
+
+    @Override
+    protected boolean isSignalSource(BlockState blockState) {
+        return true;
+    }
+
+    public void ClientMessage(Component text, Player player){
+        player.displayClientMessage(text,true);
+    }
+
 }
 
