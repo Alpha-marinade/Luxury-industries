@@ -1,8 +1,11 @@
 package com.TeamEvo.luxuryIndustries.neoforge;
 
 import com.TeamEvo.luxuryIndustries.LuxuryIndustries;
+import com.TeamEvo.luxuryIndustries.Register.BlockReg;
 import com.TeamEvo.luxuryIndustries.Register.EntityReg;
 import com.TeamEvo.luxuryIndustries.Render.LockBlockEntityRenderer;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -19,15 +22,19 @@ public final class LuxuryIndustriesNeoForge {
 
         LuxuryIndustries.init();
     }
-    /*
+
     @EventBusSubscriber(modid = MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
     public class ClientSetup {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            BlockEntityRenderers.register(EntityReg.LOCK_BLOCK_ENTITY.get(), LockBlockEntityRenderer::new);
+           // BlockEntityRenderers.register(EntityReg.LOCK_BLOCK_ENTITY.get(), LockBlockEntityRenderer::new);
+            ItemBlockRenderTypes.setRenderLayer(
+                    BlockReg.TYPEWRITER.get(),
+                    RenderType.cutout()
+            );
         }
     }
 
-     */
+
 
 }

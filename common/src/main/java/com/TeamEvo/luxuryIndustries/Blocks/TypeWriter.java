@@ -93,6 +93,7 @@ public class TypeWriter extends Block implements EntityBlock {
         }
         return InteractionResult.SUCCESS;
     }
+
     public void craft(BlockState state,Level level,BlockPos pos){
         BlockState ne=state.setValue(HAS_PAPER,false);
         level.setBlock(pos,ne,UPDATE_ALL);
