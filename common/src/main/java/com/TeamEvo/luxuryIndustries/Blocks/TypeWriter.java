@@ -27,7 +27,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
-import static org.apache.commons.lang3.RandomUtils.nextInt;
 
 public class TypeWriter extends Block implements EntityBlock {
     VoxelShape SHAPE = Block.box(3.0F, 0F,3.0F,13.0F, 13.0F,13.0F);
@@ -58,7 +57,7 @@ public class TypeWriter extends Block implements EntityBlock {
         if (!blockState.getValue(HAS_PAPER)) {
             if (itemStack.is(Items.PAPER)) {
                 Random random = new Random();
-                shouldClicks= random.nextInt(1, 10);
+                shouldClicks= random.nextInt(3, 10);
                 BlockState state = blockState.setValue(HAS_PAPER, true);
                 level.setBlock(blockPos, state, UPDATE_ALL);
                 itemStack.shrink(1);
