@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 
 import static com.TeamEvo.luxuryIndustries.LuxuryIndustries.MODID;
 import static com.TeamEvo.luxuryIndustries.Register.BlockReg.LOCK_BLOCK;
-import static com.TeamEvo.luxuryIndustries.Register.BlockReg.TYPEWRITTER;
+import static com.TeamEvo.luxuryIndustries.Register.BlockReg.TYPEWRITER;
 
 public class EntityReg {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY = DeferredRegister.create( MODID, Registries.BLOCK_ENTITY_TYPE);
