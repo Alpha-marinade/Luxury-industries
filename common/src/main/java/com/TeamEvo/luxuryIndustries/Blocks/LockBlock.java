@@ -12,6 +12,7 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +21,10 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
@@ -27,13 +32,15 @@ public class LockBlock extends Block implements EntityBlock {
     private static final BooleanProperty OPENED=BooleanProperty.create("opened");
     private static final BooleanProperty HAS_KEY =BooleanProperty.create("has_key");
     private static final BooleanProperty MODE=BooleanProperty.create("mode");
+    public static final DirectionProperty FACING=DirectionProperty.create("facing");
 
     public LockBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState()
                 .setValue(OPENED,false)
                 .setValue(HAS_KEY,false)
-                .setValue(MODE,false));
+                .setValue(MODE,false)
+                .setValue(FACING, Direction.NORTH));
     }
 @Override
 protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
@@ -74,6 +81,7 @@ protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockS
         builder.add(OPENED);
         builder.add(HAS_KEY);
         builder.add(MODE);
+        builder.add(FACING);
         super.createBlockStateDefinition(builder);
     }
 
@@ -96,6 +104,7 @@ protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockS
     public void ClientMessage(Component text, Player player){
         player.displayClientMessage(text,true);
     }
+
 
 }
 
