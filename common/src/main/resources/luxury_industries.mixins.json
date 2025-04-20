@@ -9,7 +9,8 @@
   "mixins": [
     "SmithingTableCraftMixin",
     "ItemsMixin",
-    "AnvilMixin"
+    "AnvilMixin",
+    "AnvilPushMixin"
   ],
   "injectors": {
     "defaultRequire": 1
