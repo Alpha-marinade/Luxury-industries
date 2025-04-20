@@ -24,6 +24,8 @@ public class TabReg {
                         output.accept(itemsReg.WHITE_BRICKS_TILES_ITEM.get());
                         output.accept(itemsReg. WHITE_BRICKS_ITEM.get());
                         output.accept(itemsReg.ELEGANT_CASING.get());
+                        output.accept(itemsReg.  TYPEWRITER_ITEM.get());
+
 
                     }))
                     .build());

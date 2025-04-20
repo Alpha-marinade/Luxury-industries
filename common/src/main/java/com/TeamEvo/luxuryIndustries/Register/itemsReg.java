@@ -20,5 +20,10 @@ public class itemsReg {
     public static final RegistrySupplier<Item> WHITE_BRICKS_ITEM = ITEMS.register("white_bricks",()->new BlockItem(WHITE_BRICKS.get(), new Item.Properties()));
     public static final RegistrySupplier<Item> WHITE_BRICKS_COLUMN_ITEM = ITEMS.register("white_bricks_column",()->new BlockItem(WHITE_BRICKS_COLUMN.get(), new Item.Properties()));
     public static final RegistrySupplier<Item> WHITE_BRICKS_TILES_ITEM = ITEMS.register("white_bricks_tiles",()->new BlockItem(WHITE_BRICKS_TILES.get(), new Item.Properties()));
+    public static final RegistrySupplier<Item> TYPEWRITER_ITEM = ITEMS.register("typewriter",()->new BlockItem(TYPEWRITTER.get(), new Item.Properties()));
+
+    public static final RegistrySupplier<Item> RUNE_A = ITEMS.register("rune_a",()->new Item(new Item.Properties()));
+    public static final RegistrySupplier<Item> RUNE_B = ITEMS.register("rune_b",()->new Item(new Item.Properties()));
+    public static final RegistrySupplier<Item> RUNE_C = ITEMS.register("rune_c",()->new Item(new Item.Properties()));
 
 }
